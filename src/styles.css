@@ -17,6 +17,12 @@
     box-shadow: 0 0 0 1px rgba(0, 117, 77, 0.8),
     0 1px 3px rgba(0, 0, 0, 0.3);
   }
+
+  .button-purple-gradient {
+    background: linear-gradient(0deg, #7A3DC6 0%, #B65AE2 100%);
+    box-shadow: 0 0 0 1px rgba(108, 54, 173, 0.8),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+  }
 }
 
 * {
@@ -26,3 +32,6 @@
 body {
   background-color: #CDCDCD;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

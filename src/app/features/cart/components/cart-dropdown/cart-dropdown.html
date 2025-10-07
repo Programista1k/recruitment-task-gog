@@ -1,13 +1,81 @@
-<div
-  class="flex items-center gap-0.5 justify-center w-[58px] h-full bg-white border-r border-l border-[#B8B8B8] cursor-pointer hover:bg-slate-100 transition-150 transition-all">
-  <img ngSrc="icons/cart.svg" width="16" height="15" alt="cart icon">
+<button
+  #cartBtn
+  (click)="open.set(!open())"
+  class="flex items-center gap-0.5 justify-center w-[58px] h-full bg-white border-r border-l border-[#B8B8B8] cursor-pointer hover:bg-slate-100 transition-150 transition-all"
+>
+  <img ngSrc="icons/cart.svg" width="16" height="15" alt="cart icon" />
   @if (cartItemsCount() > 0) {
     <p class="text-sm font-semibold">{{ cartItemsCount() }}</p>
   }
-</div>
+</button>
 
-<ng-template>
-  <section class="w-[360px] bg-white p-5">
-    Test testowy
+<ng-template
+  cdk-connected-overlay
+  [cdkConnectedOverlayOrigin]="cartBtn"
+  [cdkConnectedOverlayOpen]="open()"
+  [cdkConnectedOverlayPositions]="positions"
+  (backdropClick)="open.set(false)"
+  [cdkConnectedOverlayHasBackdrop]="true"
+  cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+>
+  <section
+    animate.enter="fade-in"
+    animate.leave="fade-out"
+    class="w-[360px] bg-white border border-[#B8B8B880] flex flex-col"
+  >
+    @if (cartItemsCount() > 0) {
+      <div class="flex px-2 items-center justify-between py-4">
+        <p class="font-bold text-[15px] text-[#1A1A1A]">
+          {{ cartItemsCount() }} {{ cartItemsCount() > 1 ? 'ITEMS IN CART' : 'ITEM IN CART' }}
+        </p>
+        <div class="flex gap-2 items-center h-full">
+          <p class="font-bold text-[ 15px] text-[#1A1A1A]">
+            {{ sumCartItemsPrice() }}
+          </p>
+          <button
+            (click)="clearCart.emit()"
+            class="px-[14px] py-[10px] button-purple-gradient rounded-xs cursor-pointer hover:opacity-90 transition-all"
+          >
+            <p class="font-semibold text-sm text-white leading-[22px]">CLEAR CART</p>
+          </button>
+        </div>
+      </div>
+      <div class="flex flex-col gap-px bg-[#B8B8B880] border-t border-[#B8B8B880]">
+        @for (product of cartItems().values(); track product.id) {
+          <div class="flex p-[5px] gap-2 bg-white group items-center justify-between">
+            <div class="flex gap-2">
+              <img [ngSrc]="product.thumbnailSrc" width="100" height="60" />
+              <div class="flex flex-col items-start gap-1.5 max-w-[62.5%]">
+                <p class="text-[#212121] font-semibold text-sm uppercase line-clamp-1">
+                  {{ product.title }}
+                </p>
+                <button
+                  (click)="removeFromCart.emit(product.id)"
+                  class="text-xs underline lg:pointer-events-none lg:opacity-0 cursor-pointer group-hover:pointer-events-auto group-hover:opacity-100 transition-150 transition-all"
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+            <p class="text-[13px]! font-semibold">
+              {{
+                getProductPrice(product)
+                  | currency: product.currency_code : 'symbol' : product.digits_info
+              }}
+            </p>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="flex gap-2 flex-col w-full h-full items-center justify-center p-5">
+        <p class="text-[#1A1A1A] font-semibold text-lg">Your cart is empty</p>
+        <button
+          (click)="open.set(false)"
+          class="border-[#979797] bg-[#E0E0E0] px-3 py-1 transition-150 transition-all hover:bg-slate-600 hover:text-white cursor-pointer rounded-xs"
+        >
+          Close
+        </button>
+      </div>
+    }
   </section>
 </ng-template>

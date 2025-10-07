@@ -1,13 +1,20 @@
-import {computed, inject, Injectable, PLATFORM_ID, signal, Signal, WritableSignal} from '@angular/core';
-import {isPlatformBrowser} from '@angular/common';
-import {Product} from '../../products/models/product.model';
+import {
+  computed,
+  inject,
+  Injectable,
+  PLATFORM_ID,
+  signal,
+  Signal,
+  WritableSignal,
+} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Product } from '../../products/models/product.model';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class CartService {
   // We are working on small sets so array is alright there, if
   public readonly cartItems: Signal<Map<string, Product>> = computed(() => this._cartItems());
   private _cartItems: WritableSignal<Map<string, Product>> = signal(new Map<string, Product>());
-
 
   // We could use effect() to track changes to cartItems and sync localStorage, but effect should not be used to manage state.
   private readonly platformId = inject(PLATFORM_ID);
@@ -35,14 +42,19 @@ export class CartService {
     this.saveCart();
   }
 
-  public removeFromCart(product: Product): void {
-    if (!this.cartItems().has(product.id)) return;
+  public removeFromCart(productId: string): void {
+    if (!this.cartItems().has(productId)) return;
 
     this._cartItems.update((cart) => {
       const cartItems = new Map(cart);
-      cartItems.delete(product.id);
+      cartItems.delete(productId);
       return cartItems;
     });
+    this.saveCart();
+  }
+
+  public clearCart(): void {
+    this._cartItems.update(() => new Map());
     this.saveCart();
   }
 

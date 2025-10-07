@@ -4,7 +4,7 @@ So basically, this project is not set-up perfectly for production-use, it lacks 
 
 Also we don't have any API, we don't know about size of app, so there is not any NgRx or custom Signal-Store, because its like shooting a fly with a cannon in my opinion.
 
-Project is made will full RWD.
+Project is made will full RWD. - from 320px up. (REGARDING IMAGES - I dont have those in higher quality, so it's hard for me to upscale for smaller devices so those are very very blurry.)
 
 ALSO - If it's very common to use uncommon values (XD) for paddings, font-sizes, etc. i would just specify all of those into styles.css and override defualt tailwind config, so our
 text-base would be 15px like with "GAME OF THE WEEK" instead of default 16px.
@@ -12,6 +12,9 @@ text-base would be 15px like with "GAME OF THE WEEK" instead of default 16px.
 And also things like custom shadows, etc. we should declare those within tailwind as utility classes and our own "design-system".
 
 Btw. i dont know if this figma is something intentionally prepared like that, but its so messy, paddings are not equal, etc.
+
+And also the scale of the site is weird, the figma width is 1280, when the most common content-width that i use is 1350-1500px (depends).
+
 
 # GogTask
 

@@ -1,7 +1,19 @@
-<header class="flex w-full items-center justify-center h-[59px] bg-gog-header border-b border-[#DEDEDE] shadow-sm">
-  <div class="flex max-w-gog  w-full h-full items-center justify-between max-xl:pl-2">
-    <img ngSrc="images/logo.webp" width="43" height="37" alt="gog.com logo"
-         class="hover:scale-90 transition-all transition-150">
-    <app-cart-dropdown [cartItems]="cartItems()" class="h-full"></app-cart-dropdown>
+<header
+  class="flex w-full items-center justify-center h-[59px] bg-gog-header border-b border-[#DEDEDE] shadow-sm"
+>
+  <div class="flex max-w-gog w-full h-full items-center justify-between max-xl:pl-2">
+    <img
+      ngSrc="images/logo.webp"
+      width="43"
+      height="37"
+      alt="gog.com logo"
+      class="hover:scale-90 transition-all transition-150"
+    />
+    <app-cart-dropdown
+      (clearCart)="clearCart()"
+      (removeFromCart)="removeFromCart($event)"
+      [cartItems]="cartItems()"
+      class="h-full"
+    ></app-cart-dropdown>
   </div>
 </header>
