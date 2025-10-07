@@ -12,15 +12,16 @@ for this specific case, i just asked ChatGPT what tests should i make here, what
 Basically, im not a big fan of using tools like a copilot, cursor, etc. because i think that they are too much suggestive for programmers, and those tools are making us
 use less and less of our brain-power, but for things like testing, algorithms, or suggestions about test coverage/accesibility/performance/bugs its great, and ofc. for research (but sometimes its better to look for something myself.).
 
-
 Project is made will full RWD. - from 320px up. (REGARDING IMAGES - I dont have those in higher quality, so it's hard for me to upscale for smaller devices so those are very very blurry.)
 
-ALSO - If it's very common to use uncommon values (XD) for paddings, font-sizes, etc. i would just specify all of those into styles.css and override defualt tailwind config, so our
+ALSO - If it's very common to use uncommon values for paddings, font-sizes, etc. i would just specify all of those into styles.css and override defualt tailwind config, so our
 text-base would be 15px like with "GAME OF THE WEEK" instead of default 16px.
 
 And also things like custom shadows, etc. we should declare those within tailwind as utility classes and our own "design-system".
 
 Btw. i dont know if this figma is something intentionally prepared like that, but its so messy, paddings are not equal, etc.
+
+In my current part-time hourly job im responsible for whole process, basically im doing a job of a UI/UX designer and frontend-dev so i design, develop, and maintain.
 
 And also the scale of the site is weird, the figma width is 1280, when the most common content-width that i use is 1350-1500px (depends).
 
