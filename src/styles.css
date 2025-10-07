@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+@theme {
+  --max-width-gog: 1070px;
+}
+
+@layer utilities {
+  .bg-gog-header {
+    background: linear-gradient(to bottom, #dcdcdc 0%, #ffffff 100%);
+  }
+
+  .bg-gog-green {
+    background: linear-gradient(to bottom, #00905E 0%, #00C78C 100%);
+  }
+
+  .button-shadow-gog {
+    box-shadow: 0 0 0 1px rgba(0, 117, 77, 0.8),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+* {
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+body {
+  background-color: #CDCDCD;
+}

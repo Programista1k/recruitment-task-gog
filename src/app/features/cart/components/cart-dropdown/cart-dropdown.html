@@ -1,0 +1,13 @@
+<div
+  class="flex items-center gap-0.5 justify-center w-[58px] h-full bg-white border-r border-l border-[#B8B8B8] cursor-pointer hover:bg-slate-100 transition-150 transition-all">
+  <img ngSrc="icons/cart.svg" width="16" height="15" alt="cart icon">
+  @if (cartItemsCount() > 0) {
+    <p class="text-sm font-semibold">{{ cartItemsCount() }}</p>
+  }
+</div>
+
+<ng-template>
+  <section class="w-[360px] bg-white p-5">
+    Test testowy
+  </section>
+</ng-template>

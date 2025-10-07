@@ -6,6 +6,13 @@ Also we don't have any API, we don't know about size of app, so there is not any
 
 Project is made will full RWD.
 
+ALSO - If it's very common to use uncommon values (XD) for paddings, font-sizes, etc. i would just specify all of those into styles.css and override defualt tailwind config, so our
+text-base would be 15px like with "GAME OF THE WEEK" instead of default 16px.
+
+And also things like custom shadows, etc. we should declare those within tailwind as utility classes and our own "design-system".
+
+Btw. i dont know if this figma is something intentionally prepared like that, but its so messy, paddings are not equal, etc.
+
 # GogTask
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
