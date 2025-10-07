@@ -1,6 +1,14 @@
+# Info about setup
+
+So basically, this project is not set-up perfectly for production-use, it lacks proper tsconfig, eslint, prettier, husky, etc. - which would be essential in production use.
+
+Also we don't have any API, we don't know about size of app, so there is not any NgRx or custom Signal-Store, because its like shooting a fly with a cannon in my opinion.
+
+Project is made will full RWD.
+
 # GogTask
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
 
 ## Development server
 
