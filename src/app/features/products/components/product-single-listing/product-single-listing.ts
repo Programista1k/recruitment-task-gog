@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   computed,
   input,
@@ -15,6 +16,7 @@ import { Product } from '../../models/product.model';
   imports: [NgOptimizedImage, CurrencyPipe],
   templateUrl: './product-single-listing.html',
   styleUrl: './product-single-listing.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductSingleListing {
   public product: InputSignal<Product> = input.required();

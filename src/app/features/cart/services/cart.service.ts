@@ -32,7 +32,7 @@ export class CartService {
 
   public addToCart(product: Product): void {
     // fallback if somehow someone would break app and try to add same item;
-    if (this.cartItems().has(product.id)) return;
+    if (this.cartItems().has(product.id) || product.is_owned) return;
 
     this._cartItems.update((cart) => {
       const cartItems = new Map(cart);

@@ -4,6 +4,15 @@ So basically, this project is not set-up perfectly for production-use, it lacks 
 
 Also we don't have any API, we don't know about size of app, so there is not any NgRx or custom Signal-Store, because its like shooting a fly with a cannon in my opinion.
 
+Lighthouse is not perfect because i assume we would have some nice CDN with images, which i could just build proper URL's for ngSrcSet.
+
+Regarding tests, it's not 100% coverage, because of time. But it's not a problem for me really to have 100% test coverage, even E2E (i have some experience with complex scraping  using E2E tools like Playwright),
+for this specific case, i just asked ChatGPT what tests should i make here, what coverage should be done, and double-checked if it is relevant for this case.
+
+Basically, im not a big fan of using tools like a copilot, cursor, etc. because i think that they are too much suggestive for programmers, and those tools are making us
+use less and less of our brain-power, but for things like testing, algorithms, or suggestions about test coverage/accesibility/performance/bugs its great, and ofc. for research (but sometimes its better to look for something myself.).
+
+
 Project is made will full RWD. - from 320px up. (REGARDING IMAGES - I dont have those in higher quality, so it's hard for me to upscale for smaller devices so those are very very blurry.)
 
 ALSO - If it's very common to use uncommon values (XD) for paddings, font-sizes, etc. i would just specify all of those into styles.css and override defualt tailwind config, so our

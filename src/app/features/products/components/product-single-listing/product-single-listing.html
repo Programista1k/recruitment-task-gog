@@ -34,14 +34,17 @@
           IN CART
         </span>
       } @else {
-        <span
+        <button
+          type="button"
+          data-test="add-to-cart"
+          aria-label="Add {{ product().title }} to cart"
           (click)="addToCart.emit(product())"
           class="border-1 h-[22px] py-0.5 px-2 border-[#979797] transition-150 transition-all hover:bg-slate-600 hover:text-white cursor-pointer rounded-xs inline-flex items-center justify-center text-[13px] font-semibold text-[#404040]"
         >
           {{
             productPrice() | currency: product().currency_code : 'symbol' : product().digits_info
           }}
-        </span>
+        </button>
       }
     </div>
   </div>

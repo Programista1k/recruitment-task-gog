@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   computed,
   inject,
@@ -20,6 +21,7 @@ import { CdkConnectedOverlay, ConnectedPosition } from '@angular/cdk/overlay';
   providers: [CurrencyPipe],
   templateUrl: './cart-dropdown.html',
   styleUrl: './cart-dropdown.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartDropdown {
   public cartItems: InputSignal<Map<string, Product>> = input.required();
